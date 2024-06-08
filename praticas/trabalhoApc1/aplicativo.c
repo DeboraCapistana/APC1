@@ -1,4 +1,3 @@
-// Desenvolva um programa em linguagem C, optando por um jogo de tabuleiro ou um sistema de cadastro de dados, que atenda aos seguintes critérios:
 // a) Deve conter apenas a função main(), sem precisar dividir o código em outras funções;
 // b) Implementar um menu principal, fazendo uso de comandos de seleção e repetição;
 // c) Garantir a validação da entrada de dados, permitindo apenas os valores aceitos e evitando possíveis erros durante a execução do programa;
@@ -6,105 +5,197 @@
 // // Submeta seu projeto por meio do Replit para permitir a análise do código e a execução do programa.
  #include <stdio.h>
  #include <stdlib.h>
+ #include <string.h>//bibliote para char[]=string
 
-
-int main() {
-  int menu,tamanho;
-  char nome[50], data[11], cpf[15],endereco[80], convenio[20], contato[12];
+int main(){
+  int menu,tamanho,opcao;
+  char data_consulta[11], horario[10], medico[30], paciente[11], pagamento[20];
   
+}
+  struct cadastro { 
+  char nome[50];
+  int data[11];
+  int cpf[12];
+  char endereco[25];
+  char convenio[20];
+  char contato[12];
+  char caso[30];
+  };
   
-printf("1-CADASTRO\n");
-printf("2-PESQUISA\n");
+  struct cadastro cadastro[10]
+ do{ //inicio do menu
+  
+printf("1-PESQUISA\n");
+printf("2-CADASTRO\n");
 printf("3-MARCAR CONSULTA\n");
-printf("4-ALTERAÇÃO DE DADOS\n");
-printf("5-EXCLUSÃO\n");
-printf("6-SAIR\n");
-  
+printf("Digite a opção desejada: ");
+
   scanf("%i", &menu);
   getchar();
   system("clear");
   
   switch(menu){
+
+
+    case 1:
+        //pesquisa
+      printf("CPF: ");
+      scanf("%[^\n]c", &cpf);
+      getchar();
+      printf("Voltar ao menu principal?: \n");
+      printf("1-Sim \n");
+      printf("2-Não, fazer nova pesquisa. \n");
+      printf("Digite a opção desejada: ");
+      getchar();
+
+    break;
     
-    case 1: 
+    case 2: 
+
+     
       
      printf("Nome do Paciente: \n");
      scanf("%[^\n]c", &nome);
-  getchar();
+     getchar();
+      
      printf("Data de nascimento: \n");
      scanf("%[^\n]c", &data);
-      getchar();
+     getchar();
    
     do{
       printf("CPF: \n");
-       scanf("%s", &cpf);
-       
+      scanf("%s", &cpf);
+      getchar();
+      
         tamanho = strlen(cpf);
         if(tamanho!=11){
         printf("\nCPF invalido!Tente novamente!\n");
         }
     }while(tamanho!=11);
-      
-    printf("Endereço: ");
+
+    printf("Endereço: \n");
     scanf("%[^\n]c", &endereco);
+    getchar();
       
- printf("Convenio: ");
+    printf("Número do convênio: \n");
+    scanf("%[^\n]c", &convenio);
+    getchar();
+      
+    printf("Contato: \n");
+    scanf("%[^\n]c", &contato);
+    getchar();
+    printf("Voltar ao menu principal?: \n");
 
-  scanf("");
-  printf("Contato: ");
-  scanf(");
-  break;
-  
-    
-    case 2:
-      //pesquisa: 
-    
 
-  break;
+        printf("1- Sim, salvar dados \n");
+        printf("2- Não, alterar dados \n");
+        printf("Digite a opção desejada: ");
+        scanf("%i", &opcao);//tipo inteiro %i
+        getchar();
+      
+       system("clear");//limpar tela
+      
+     if(opcao==2){
+      printf("ALTERAR: \n"); 
+      printf("1-Nome do Paciente: \n");
+      printf("2-Data de nascimento: \n");
+      printf("3-CPF: \n");
+      printf("4-Endereço: \n");
+      printf("5-Convênio: \n");
+      printf("6-Contato: \n");
+      printf("Digite a opção desejada: ");
+      scanf("%i", &opcao);//ver agr
+      
+     
+       getchar();
+       
+        system("clear");//limpar tela
+       
+      if(opcao==1){
+         printf("Nome do Paciente: \n");
+         scanf("%[^\n]c", &nome);
+         getchar();
+      } 
+    
+      if(opcao==2){
+         printf("Data de nascimento: \n");
+         scanf("%[^\n]c", &data);
+         getchar();
+      }
+
+      if(opcao==3){
+         printf("CPF: \n");
+         scanf("%[^\n]c", &cpf);
+         getchar();
+    } 
+      
+      if(opcao==4){
+         printf("Endereço: \n");
+         scanf("%[^\n]c", &endereco);
+         getchar();
+    } 
+        if(opcao==5){
+           printf("Convênio: \n");
+         scanf("%[^\n]c", &convenio);
+         getchar();
+    }
+        if(opcao==6){
+           printf("Contato: \n");
+         scanf("%[^\n]c", &contato);
+         getchar();
+        }
+     }
+    break;
     
    case 3:
       //MARCAR CONSULTA
+     printf("Nome do paciente: \n");
+     scanf("%[^\n]c", &paciente);
+     getchar();
+     
+     printf("Data de nascimento: \n");
+     scanf("%[^\n]c", &data);
+     getchar();
+     
+     printf("Caso do paciente: \n");
+     scanf("%[^\n]c", &caso);
+     getchar();
 
-  break;
+     printf("Horario da consulta: \n");
+     scanf("%[^\n]c", &horario);
+     getchar();
+     
+     printf("Data da consulta: \n");
+     scanf("%[^\n]c", &data_consulta);
+     getchar();
 
-  case 4:
-  //ALTERAÇÃO DE DADOS
+     printf("Medico responsável: \n");
+     scanf("%[^\n]c", &medico);
+     getchar();
+  
+     printf("Forma de pagamento: \n");
+     scanf("%[^\n]c", &pagamento);
+     getchar();
 
-  break;
-    
-  case 5:
-  //EXCLUSÃO
+     printf("Voltar ao menu principal?: \n");
+     printf("Digite a opção desejada: ");
 
-  break;
+     
+     printf("1-Sim \n");
+     printf("2-Não \n");
 
-  case 6:
-  //SAIR
-
-  break;
-  }
-
-
-
- 
-                                               
-                                               
-                                        
-
-
-
-
-
+     scanf("%i", &opcao);
+     getchar();
 
   
+  break;
+  }
+}while(opcao==1);//condicao para voltar pro menu, se opcao for igual a 1 volta pro menu
+                                               
+               
   return 0;
 }
-//menu
-//1-cadastro
-//2-pesquisa
-//3-alteração
-//4-exclusão
-//5-sair
-//
+
 
 
 

@@ -1,0 +1,24 @@
+{
+  "files": {
+    "praticas/trabalhoApc1/aplicativo.c": [
+      {
+        "id": "b1b4e934-944b-483d-865b-e0afa1959cf8",
+        "line": 25,
+        "version": 8437,
+        "index": 974
+      },
+      {
+        "id": "50bf236b-5fab-4220-a51c-da687ce25f17",
+        "line": 27,
+        "version": 8437,
+        "index": 1133
+      },
+      {
+        "id": "9d79116b-cb56-4c54-ba76-7643095674c8",
+        "line": 197,
+        "version": 8437,
+        "index": 4827
+      }
+    ]
+  }
+}
