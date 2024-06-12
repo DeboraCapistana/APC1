@@ -1,8 +1,4 @@
-// a) Deve conter apenas a função main(), sem precisar dividir o código em outras funções;
-// b) Implementar um menu principal, fazendo uso de comandos de seleção e repetição;
-// c) Garantir a validação da entrada de dados, permitindo apenas os valores aceitos e evitando possíveis erros durante a execução do programa;
-// d) Incorporar a capacidade de armazenar dados em memória, fazendo uso de matrizes e estruturas.
-// // Submeta seu projeto por meio do Replit para permitir a análise do código e a execução do programa.
+
  #include <stdio.h>
  #include <stdlib.h>
  #include <string.h>//biblioteca para char[]=string
@@ -31,11 +27,11 @@ int main(){
   system("clear");
    printf("________________________________________________________________\n");
    
-   printf("         _   _           _                    _                 \n");
+   printf("\e[0;96m         _   _           _                    _                 \n");
    printf("  ____  | | (_)  _ ___  (_)  ____   ___ _    | |  _   _   ____  \n");
    printf(" |  __| | | | | | '_  | | | |  __| |  _` |   | | | | | | |_  /  \n");
-   printf(" | (__  | | | | | | | | | | | |__  | (_| |   | | | |_| |  / /   \n");
-   printf(" |____| |_| |_| |_| |_| |_| |____| |___,_|   |_| |___,_| /___|  \n");
+   printf(" | (__  | | | | | | | | | | | |__  | (_| |   | | | |_| |  / /_   \n");
+   printf(" |____| |_| |_| |_| |_| |_| |____| |_____|   |_| |_____| /____|  \e[0m	\n");
    
    printf("_________________________________________________________________\n");
 
@@ -61,15 +57,17 @@ int main(){
   switch(menu){
 
     case 1:
+     //Pesquisar
       do{
       do{
     system("clear");
-    
-    printf("Pesquisar por:\n");
+    printf("_________________________________________________________________\n");
+      
+    printf("\n\e[0;36m Pesquisar por:\e[0;0m\n");
       scanf("%s", &pesquisar);
          tamanho = strlen(pesquisar);
-        if(tamanho!=11){
-         printf("\nCPF invalido!Tente novamente!\n");
+          if(tamanho!=11){
+          printf("\n\e[0;31m CPF inválido! Tente novamente!\e[0;0m\n");
         }
       }while(tamanho!=11);
       ver=0;
@@ -79,11 +77,11 @@ int main(){
       if(achou==0){
       ver++;
                         
-      printf("________________________________________________________\n");
+      printf("______________________________________________________\n");
   
-      printf("e[0;36m                    C A D A S T R O e[0;m\n");
+      printf("\e[0;36m                    C A D A S T R O \e[0;m\n");
 
-      printf("________________________________________________________\n");
+      printf("______________________________________________________\n");
       printf("Nome do Paciente: %s\n",cadastro[i].nome);
         
       printf("endereço: %s\n",cadastro[i].endereco);
@@ -93,13 +91,14 @@ int main(){
       printf("convenio: %s\n",cadastro[i].convenio);
         
       printf("data: %s\n",cadastro[i].data);
-      printf("_____________________________________________________________\n");
+      printf("______________________________________________________\n");
 
 
       
-        printf("__________________________________________________________\n");
-        printf("\n\e[0;36m             C O N S U L T A\e[0;0m\n\n");
-        printf("__________________________________________________________\n");
+        printf("______________________________________________________\n");
+        
+        printf("\n\e[0;36m                C O N S U L T A\e[0;0m\n\n");
+        printf("______________________________________________________\n");
         
         printf("Caso do paciente: %s \n", cadastro[i].caso);
         
@@ -107,45 +106,46 @@ int main(){
         
         printf("Data da consulta: %s \n",cadastro[i].data_consulta);
         
-        printf("Medico responsável: %s\n", cadastro[i].medico);
+        printf("Médico responsável: %s\n", cadastro[i].medico);
         
-        printf("Valor à pagar: %.2f\n", cadastro[i].pagamento);
+        printf("Valor à pagar: %.2s\n", cadastro[i].pagamento);
 
-        printf("_________________________________________________________\n");
+        printf("______________________________________________________\n");
 
         
       break;
       }
         if(ver!=1&&i==contador){
-
-          printf("\nCPF não cadastrado!\n");
+          printf("\e[0;31m\nCPF não cadastrado!\e[0;0m\n");
           
         }
         
       }
-      printf("___________________________________________________________\n");
+      printf("________________________________________________________\n");
       
-      printf("VOLTAR AO  MENU PRINCIPAL? \n");
+      printf("\n\e[0;36m   VOLTAR AO  MENU PRINCIPAL? \e[0;0m\n");
         
-        printf("Digite a opção desejada: \n");
+      printf("Digite a opção desejada: \n");
         
-      printf("1-Sim \n");
+      printf("\e[0;32m 1-Sim \e[0;0m\n");
       
-      printf("2-Não, fazer nova pesquisa. \n");
+      printf("\e[0;31m 2-Não, fazer nova pesquisa. \e[0;0m\n");
       
       
-      printf("___________________________________________________________\n");
+      printf("_________________________________________________________\n");
 
       scanf("%i",&opcao);
       getchar();
       }while(opcao==2);
 
     break;
-    //chave=cpf
+  
     case 2:
-     printf("____________________________________________________________\n"); 
-     printf("\n \e[0;36m                   C A D A S T R O  \e[0;0m\n");
-    printf("___________________________________________________________\n");
+    // Fazer cadastro
+    printf("__________________________________________________________\n"); 
+    printf("\n\e[0;36m                   C A D A S T R O     \e[0;0m\n\n");
+    printf("__________________________________________________________\n\n");
+
       
      printf("NOME DO PACIENTE: \n");
      scanf("%[^\n]s",&cadastro[contador].nome); 
@@ -154,7 +154,7 @@ int main(){
      printf("DATA DE NASCIMENTO: \n");
      scanf("%[^\n]s", &cadastro[contador].data);
      getchar();
-   //cpf
+  
     do{
       printf("CPF: \n");
       scanf("%s", &cadastro[contador].cpf);
@@ -177,34 +177,34 @@ int main(){
     printf("CONTATO: \n");
     scanf("%[^\n]s", &cadastro[contador].contato);
     getchar();
-    printf(" \e[0;36m DESEJA SALVAR O CADASTRO?  \e[0;m\n");
-    printf("___________________________________________________________________\n");
-    
+    printf("\n\e[0;36m DESEJA SALVAR O CADASTRO?  \e[0;m\n");    
 
         printf("\e[0;32m 1- Sim, salvar dados \e[0;m\n");
         printf("\e[0;31m 2- Não, alterar dados \e[0;m\n");
-        printf("Digite a opção desejada: ");
-        scanf("%i", &opcao);//tipo inteiro %i
+      printf("__________________________________________________________\n");
+
+        printf("\n Digite a opção desejada: ");
+        scanf("%i", &opcao);
         getchar();
       
        system("clear"); //limpar tela
-      //alterar
+
      if(opcao==2){
-      printf("ALTERAR: \n"); 
+      printf("\e[4;36mALTERAR: \e[0;0m\n"); 
        
-      printf("1-Nome do Paciente: \n");
+      printf("1 -Nome do Paciente: \n");
        
-      printf("2-Data de nascimento: \n");
+      printf("2 -Data de nascimento: \n");
        
-      printf("3-CPF: \n");
+      printf("3 -CPF: \n");
        
-      printf("4-Endereço: \n");
+      printf("4 -Endereço: \n");
        
-      printf("5-Convênio: \n");
+      printf("5 -Convênio: \n");
        
-      printf("6-Contato: \n");
+      printf("6 -Contato: \n");
        
-      printf("Digite a opção desejada: ");
+      printf("\e[4;36mDigite a opção desejada: \e[0;0m");
        
       scanf("%i", &opcao);
       
@@ -237,14 +237,14 @@ int main(){
          getchar();
     } 
         if(opcao==5){
-           printf("Convênio: \n");
-         scanf("%[^\n]s", &cadastro[contador].convenio);
-         getchar();
+          printf("Convênio: \n");
+          scanf("%[^\n]s", &cadastro[contador].convenio);
+          getchar();
     }
         if(opcao==6){
-           printf("Contato: \n");
-         scanf("%[^\n]s", &cadastro[contador].contato);
-         getchar();
+          printf("Contato: \n");
+          scanf("%[^\n]s", &cadastro[contador].contato);
+          getchar();
         }
      }
       contador++;
@@ -255,39 +255,43 @@ int main(){
   
 do{
    system ("clear");
-         do{
-     printf("\nCPF :");
-     scanf("%s", &pesquisar);
+        do{
+          printf("----------------------------------------------------------\n");
+          printf("\n Digite o CPF: ");
+          scanf("%s", &pesquisar);
           tamanho = strlen(pesquisar);
-         if(tamanho!=11){
-          printf("\nCPF inválido! Tente novamente!\n");
+        if(tamanho!=11){
+          printf("\e[0;91m\n  CPF inválido! Tente novamente!\e[0;0m\n");
          }
        }while(tamanho!=11);
-       ver=0;
-       for(int i=0;i<=contador;i++){
-      achou=strcmp(pesquisar,cadastro[i].cpf);
+        ver=0;
+        for(int i=0;i<=contador;i++){
+        achou=strcmp(pesquisar,cadastro[i].cpf);
 
          if(achou==0){
            consulta==i;
            ver++;
-           printf("-----------------------------------------------------------------------------\n");
-           printf("                M A R C A R  C O N S U L T A\n");
-           printf("-----------------------------------------------------------------------------\n");
+           printf("----------------------------------------------------\n");
+           printf("          \e[0;36m M A R C A R    C O N S U L T A \e[0;0m\n");
+           printf("----------------------------------------------------\n");
+           
            printf("Nome do Paciente: %s\n\n",cadastro[i].nome);
-           printf("Contato: %s\n\n",cadastro[i].contato);
-           printf("Convenio: %s\n\n",cadastro[i].convenio);
+           
+           printf( "Contato: %s\n\n",cadastro[i].contato);
+           
+           printf( "Convenio: %s\n\n",cadastro[i].convenio);
            getchar();
            break;
            }
              if(ver!=1&&i==contador){
 
-           printf("\e[4;31m \e[0;31m\nCPF não cadastrado!\e[0;m ]\e[4;m\n");
+           printf("\e[0;91m \e[0;31m\nCPF não cadastrado!\e[0;m ]\e[0;0m\n");
 printf("");
              }
 
            }
 if(ver==1){
-      printf("-----------------------------------------------------\n");
+      printf("----------------------------------------------------\n");
      
      printf("Caso do paciente: ");
      scanf("%[^\n]s", &cadastro[consulta].caso);
@@ -306,18 +310,19 @@ if(ver==1){
      scanf("%[^\n]s", &cadastro[consulta].medico);
      getchar();
      printf("\n");
-     printf("\e[0;31m Valor à pagar: \e[0;m");
+     printf("\e[0;31m Valor à pagar: R$ \e[0;m");
      scanf("%f", &cadastro[consulta].pagamento);
      getchar();
 
 }
      
      printf("\n");
-     printf("Voltar ao menu principal?: \n");
+     printf("\e[0;36mVoltar ao menu principal?: \e[0;0m\n");
      printf("Digite a opção desejada: \n\n");
 
      
-     printf("1-Sim    2-Não, tentar novamente \n");
+     printf("\e[0;32m 1-Sim \e[0;00m    \e[0;100m2-Não, tentar novamente \e[0;000m\n");
+  printf("________________________________________________________\n");
     scanf("%d", &opcao);
     getchar();
 
@@ -332,5 +337,5 @@ if(ver==1){
 }
 
 
-
+//https://gist.github.com/RabaDabaDoba/145049536f815903c79944599c6f952a// cores
 
